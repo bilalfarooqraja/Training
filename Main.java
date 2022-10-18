@@ -1,27 +1,28 @@
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        // creates an object of Scanner
-        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter number ");
+        int[] array = {1, 2, 3, 4, 5};
+        System.out.println("Array" + Arrays.toString(array));
+        arraySort(array);
+        System.out.println("Array" + Arrays.toString(array));
+    }
 
-        // takes input from the keyboard
-        int num = Integer.parseInt(input.nextLine());
+    public static void arraySort(int[] array) {
+        int max = array.length - 1;
+        // System.out.println("max"+max);
+        int halflength = array.length / 2;
+        //System.out.println("half"+halflength);
 
-        System.out.print("Now enter array value ");
+        for (int i = 0; i < halflength; i++) {
+            int temp = array[i];
 
-
-        int array[]= new int[num];
-        for(int i=0;i<num;i++){
-            input = new Scanner(System.in);
-            array[i] = Integer.parseInt(input.nextLine());
-
-
+            array[i] = array[max];
+            array[max] = temp;
+            max--;
         }
-        System.out.println(Arrays.toString(array));
-        input.close();
-    }}
+
+    }
+}
